@@ -1,21 +1,6 @@
-# flux-shell
+# flux-todomvc
 
-This is a very simple hello world app that you can use as a starting point for your application.
+Flux MVC tutorial app following https://github.com/facebook/flux/tree/master/examples/flux-todomvc
 
-# Usage
+Based on Flux-shell https://github.com/facebook/flux/tree/master/examples/flux-shell
 
-```bash
-cd path/to/flux-shell
-npm install
-npm run build
-# open path/to/flux-shell/index.html in your browser
-```
-
-# Watch
-
-Instead of manually building after each change it's possible to automatically recompile the javascript bundle when files change:
-
-```bash
-npm run watch
-# make javascript changes, then refresh path/to/flux-shell/index.html
-```
