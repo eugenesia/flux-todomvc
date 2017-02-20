@@ -5,6 +5,10 @@ import {ReduceStore} from 'flux/utils';
 import TodoActionTypes from './TodoActionTypes';
 import TodoDispatcher from './TodoDispatcher';
 
+import Counter from '../data/Counter';
+import Todo from '../data/Todo';
+
+
 // ReduceStore: A Store that reduces the current state and an action, to the
 // new state. See https://facebook.github.io/flux/docs/flux-utils.html#reducestore-t
 class TodoStore extends ReduceStore {
@@ -24,8 +28,19 @@ class TodoStore extends ReduceStore {
     switch (action.type) {
 
       case TodoActionTypes.ADD_TODO:
-        // Do nothing for now, we will add logic here soon!
-        return state;
+        // Don't add todos with no text.
+        if (! action.text) {
+          return state;
+        }
+        const id = Counter.increment();
+
+        // Runs Immutable.Map.set() and sets the map value to a new Todo
+        // instance, with key id.
+        return state.set(id, new Todo({
+          id,
+          text: action.text,
+          complete: false,
+        }));
 
       default:
         return state;
