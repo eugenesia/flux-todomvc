@@ -3,7 +3,7 @@ import React from 'react';
 function AppView(props) {
   return (
     <div>
-      // Use spread attributes to copy the props to Header.
+      { /* Use spread attributes to copy the props to Header. */ }
       <Header {...props} />
       <Main {...props} />
       <Footer {...props} />
