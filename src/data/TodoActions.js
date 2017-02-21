@@ -25,6 +25,14 @@ const Actions = {
       id,
     });
   },
+
+  // Update the draft todo with new text.
+  updateDraft(text) {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.UPDATE_DRAFT,
+      text,
+    });
+  }
 };
 
 export default Actions;
