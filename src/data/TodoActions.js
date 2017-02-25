@@ -60,16 +60,15 @@ const Actions = {
   stopEditingTodo() {
     TodoDispatcher.dispatch({
       type: TodoActionTypes.STOP_EDITING_TODO,
-      id,
     })
   },
 
   editTodo(id, text) {
-    TodoDispatcher.dispatch(
+    TodoDispatcher.dispatch({
       type: TodoActionTypes.EDIT_TODO,
       id,
       text,
-    );
+    });
   }
 };
 

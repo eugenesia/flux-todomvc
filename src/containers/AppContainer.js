@@ -4,10 +4,12 @@ import AppView from '../views/AppView';
 import {Container} from 'flux/utils';
 import TodoStore from '../data/TodoStore';
 import TodoDraftStore from '../data/TodoDraftStore';
+import TodoEditStore from '../data/TodoEditStore';
 import TodoActions from '../data/TodoActions';
 
 function getStores() {
   return [
+    TodoEditStore,
     TodoDraftStore,
     TodoStore,
   ];
@@ -17,6 +19,8 @@ function getState() {
   return {
     // The single draft Todo.
     draft: TodoDraftStore.getState(),
+    // Keep track of ID of Todo being edited.
+    editing: TodoEditStore.getState(),
     // Previously added Todos.
     todos: TodoStore.getState(),
 
@@ -26,11 +30,16 @@ function getState() {
     // directly.
     onAdd: TodoActions.addTodo,
     onDeleteTodo: TodoActions.deleteTodo,
-    onToggleTodo: TodoActions.toggleTodo,
-    onUpdateDraft: TodoActions.updateDraft,
     onDeleteCompletedTodos: TodoActions.deleteCompletedTodos,
+
+    onToggleTodo: TodoActions.toggleTodo,
     onToggleAllTodos: TodoActions.toggleAllTodos,
+
+    onUpdateDraft: TodoActions.updateDraft,
+
     onStartEditingTodo: TodoActions.startEditingTodo,
+    onStopEditingTodo: TodoActions.stopEditingTodo,
+    onEditTodo: TodoActions.editTodo,
   }
 }
 
