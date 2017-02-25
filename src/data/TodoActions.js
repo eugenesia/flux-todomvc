@@ -46,6 +46,30 @@ const Actions = {
     TodoDispatcher.dispatch({
       type: TodoActionTypes.DELETE_COMPLETED_TODOS,
     });
+  },
+
+  // Start editing an existing todo.
+  startEditingTodo(id) {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.START_EDITING_TODO,
+      id,
+    })
+  },
+
+  // Stop editing an existing todo.
+  stopEditingTodo() {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.STOP_EDITING_TODO,
+      id,
+    })
+  },
+
+  editTodo(id, text) {
+    TodoDispatcher.dispatch(
+      type: TodoActionTypes.EDIT_TODO,
+      id,
+      text,
+    );
   }
 };
 

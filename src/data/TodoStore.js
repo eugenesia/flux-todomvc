@@ -60,6 +60,10 @@ class TodoStore extends ReduceStore {
       case TodoActionTypes.DELETE_COMPLETED_TODOS:
         return state.filter(todo => ! todo.complete);
 
+      // Find the edited Todo by ID, and set its text.
+      case TodoActionTypes.EDIT_TODO:
+        return state.setIn([action.id, 'text'], action.text);
+
       default:
         return state;
     }
