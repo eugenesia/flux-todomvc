@@ -26,6 +26,13 @@ const Actions = {
     });
   },
 
+  // Toggle all Todos.
+  toggleAllTodos() {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.TOGGLE_ALL_TODOS,
+    });
+  },
+
   // Update the draft todo with new text.
   updateDraft(text) {
     TodoDispatcher.dispatch({
