@@ -17,10 +17,7 @@ class TodoEditStore extends ReduceStore {
 
   // Called once at the beginning.
   getInitialState() {
-    return {
-      id: null,
-      text: '',
-    };
+    return '';
   }
 
   // Called at every state change.
@@ -29,13 +26,10 @@ class TodoEditStore extends ReduceStore {
 
       // Record the ID of the Todo being edited.
       case TodoActionTypes.START_EDITING_TODO:
-        this.setState({
-          id: action.id,
-          text: action.text,
-        });
+        return action.id;
 
       case TodoActionTypes.STOP_EDITING_TODO:
-        return state;
+        return '';
 
       default:
         return state;
@@ -43,5 +37,5 @@ class TodoEditStore extends ReduceStore {
   }
 }
 
-export default new TodoDraftStore();
+export default new TodoEditStore();
 
